@@ -45,7 +45,7 @@ namespace Cafeteria.Datos
                     while (dr.Read())
                     {
 
-                        oAlumno.Codigo = Convert.ToInt32(dr["Id"]);
+                        oAlumno.Codigo = Convert.ToInt32(dr["Codigo"]);
                         oAlumno.Nombre = dr["Nombre"].ToString();
                     }
                 }
