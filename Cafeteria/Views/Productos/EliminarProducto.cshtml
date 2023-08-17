@@ -1,0 +1,24 @@
+﻿@model Cafeteria.Models.ProductosModel;
+@{
+    ViewData["Title"] = "EliminarProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Eliminar Producto
+    </div>
+    <div class="card-body justify-content-center">
+        <form asp-action="EliminarProducto" asp-controller="Productos" method="post">
+            <input asp-for="Id" type="hidden" class="form-control" />
+            <div class="alert alert-danger" role="alert">
+                ¿Deseas eliminar el ítem del Producto @Html.DisplayTextFor(m => m.Nombre)?
+            </div>
+
+            <div class="col-4">
+                <button type="submit" class="btn btn-danger mb-3">Eliminar</button>
+                <a asp-action="ListarProducto" asp-controller="Productos" class="btn btn-warning">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>

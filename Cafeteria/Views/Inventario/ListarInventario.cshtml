@@ -1,0 +1,40 @@
+﻿@model List<InventarioModel>;
+@{
+    ViewData["Title"] = "ListarInventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Lista de Inventario
+    </div>
+    <div class="card-body">
+        <a asp-action="RegistrarInventario" asp-controller="Inventario" class="btn btn-primary btn-sm">Crear Nuevo</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+
+                        <td>
+                            <a asp-action="EditarInventario" asp-controller="Inventario" asp-route-Id="@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                            <a asp-action="EliminarInventario" asp-controller="Inventario" asp-route-Id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

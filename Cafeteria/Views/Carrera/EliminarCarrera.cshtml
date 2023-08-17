@@ -1,0 +1,24 @@
+﻿@model Cafeteria.Models.CarreraModel;
+@{
+    ViewData["Title"] = "EliminarCarrera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Eliminar Carrera
+    </div>
+    <div class="card-body justify-content-center">
+        <form asp-action="EliminarCarrera" asp-controller="Carrera" method="post">
+            <input asp-for="Codigo" type="hidden" class="form-control" />
+            <div class="alert alert-danger" role="alert">
+                ¿Deseas eliminar la Carrera @Html.DisplayTextFor(m => m.Nombre)?
+            </div>
+
+            <div class="col-4">
+                <button type="submit" class="btn btn-danger mb-3">Eliminar</button>
+                <a asp-action="ListarCarrera" asp-controller="Carrera" class="btn btn-warning">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>

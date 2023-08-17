@@ -1,0 +1,25 @@
+﻿@model Cafeteria.Models.EmpleadoModel;
+@{
+    ViewData["Title"] = "EliminarEmpleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Eliminar Empleado
+    </div>
+    <div class="card-body justify-content-center">
+        <form asp-action="EliminarEmpleado" asp-controller="Empleado" method="post">
+            <input asp-for="Id" type="hidden" class="form-control" />
+            <div class="alert alert-danger" role="alert">
+                ¿Deseas eliminar el Empleado @Html.DisplayTextFor(m => m.Nombre)?
+            </div>
+
+
+            <div class="col-4">
+                <button type="submit" class="btn btn-danger mb-3 btn-sm">Eliminar</button>
+                <a asp-action="ListarEmpleado" asp-controller="Empleado" class="btn btn-warning btn-sm">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>

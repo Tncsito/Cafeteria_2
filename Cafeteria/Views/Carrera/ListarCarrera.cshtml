@@ -1,0 +1,36 @@
+﻿@model List<CarreraModel>;
+@{
+    ViewData["Title"] = "ListarCarrera";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Lista de Carrera
+    </div>
+    <div class="card-body">
+        <a asp-action="RegistrarCarrera" asp-controller="Carrera" class="btn btn-primary btn-sm">Crear Nuevo</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Codigo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Codigo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+
+                        <td>
+                            <a asp-action="EditarCarrera" asp-controller="Carrera" asp-route-Id="@item.Codigo" class="btn btn-warning btn-sm">Editar</a>
+                            <a asp-action="EliminarCarrera" asp-controller="Carrera" asp-route-Id="@item.Codigo" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

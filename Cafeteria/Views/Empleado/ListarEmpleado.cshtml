@@ -1,0 +1,46 @@
+﻿@model List<EmpleadoModel>;
+@{
+    ViewData["Title"] = "ListarEmpleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Lista de Empleados
+    </div>
+    <div class="card-body">
+        <a asp-action="RegistrarEmpleado" asp-controller="Empleado" class="btn btn-primary btn-sm">Crear Nuevo</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Puesto</th>
+                    <th>Salario</th>
+                    <th>Contraseña</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Correo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Puesto)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Salario)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Contraseña)</td>
+
+                        <td>
+                            <a asp-action="EditarEmpleado" asp-controller="Empleado" asp-route-Id="@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                            <a asp-action="EliminarEmpleado" asp-controller="Empleado" asp-route-Id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

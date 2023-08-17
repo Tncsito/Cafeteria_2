@@ -1,0 +1,48 @@
+﻿@model List<AlumnoModel>;
+@{
+    ViewData["Title"] = "ListarAlumno";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Lista de Alumnos
+    </div>
+    <div card-body>
+        <a asp-action="Registrarse" asp-controller="Alumno" class="btn btn-primary btn-sm">Crear Nuevo</a>
+        <table class="table teble-striped">
+            <thead>
+                <tr>
+                    <th>Nss</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Carrera</th>
+                    <th>No. Semestre</th>
+                    <th>Matricula</th>
+                    <th>Contraseña</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem=>item.Nss)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Nombre)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Apellido)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Correo)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Carrera)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Semestre)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Matricula)</td>
+                        <td>@Html.DisplayFor(modelItem=>item.Contraseña)</td>
+
+                        <td>
+                            <a asp-action="EditarAlumno" asp-controller="Alumno" asp-route-Nss="@item.Nss" class="btn btn-warning btn-sm">Editar</a>
+                            <a asp-action="EliminarAlumno" asp-controller="Alumno" asp-route-Nss="@item.Nss" class="btn btn-danger  btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

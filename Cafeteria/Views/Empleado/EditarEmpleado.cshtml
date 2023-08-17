@@ -1,0 +1,57 @@
+﻿@model Cafeteria.Models.EmpleadoModel;
+@{
+    ViewData["Title"] = "EditarEmpleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card col-8">
+    <div class="card-header">
+        Editar Empleado
+    </div>
+    <div class="card-body justify-content-center">
+        <form asp-action="EditarEmpleado" asp-controller="Empleado" method="post">
+            <input asp-for="Id" type="hidden" class="form-control" />
+
+            <div class="col-6">
+                <label for="staticEmail2" class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label for="staticEmail2" class="form-label">Apellido</label>
+                <input asp-for="Apellido" type="text" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label for="staticEmail2" class="form-label">Correo</label>
+                <input asp-for="Correo" type="email" class="form-control">
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label for="staticEmail2" class="form-label">Puesto</label>
+                <input asp-for="Puesto" type="text" class="form-control" />
+                <span asp-validation-for="Puesto" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label for="staticEmail2" class="form-label">Salario</label>
+                <input asp-for="Salario" type="number" class="form-control" />
+                <span asp-validation-for="Salario" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label for="inputPassword2" class="form-label">Contraseña</label>
+                <input asp-for="Contraseña" type="password" class="form-control" />
+                <span asp-validation-for="Contraseña" class="text-danger"></span>
+            </div>
+
+            <div class="col-4">
+                <button type="submit" class="btn btn-primary">Editar</button>
+                <a asp-action="ListarEmpleado" asp-controller="Empleado">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>

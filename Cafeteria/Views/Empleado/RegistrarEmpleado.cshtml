@@ -1,0 +1,47 @@
+﻿@model Cafeteria.Models.EmpleadoModel;
+@{
+    ViewData["Title"] = "RegistrarEmpleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="RegistrarEmpleado" asp-controller="Empleado" method="post">
+    <div class="col-6">
+        <label class="form-label">Id</label>
+        <input asp-for="Id" type="number" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <label class="form-label">Nombre</label>
+        <input asp-for="Nombre" type="text" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <label class="form-label">Apellido</label>
+        <input asp-for="Apellido" type="text" class="form-control" />
+        <span asp-validation-for="Apellido" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <label class="form-label">Correo</label>
+        <input asp-for="Correo" type="email" class="form-control">
+        <span asp-validation-for="Correo" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <label class="form-label">Puesto</label>
+        <input asp-for="Puesto" type="text" class="form-control" />
+        <span asp-validation-for="Puesto" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <label class="form-label">Salario</label>
+        <input asp-for="Salario" type="number" class="form-control" />
+        <span asp-validation-for="Salario" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <label class="form-label">Contraseña</label>
+        <input asp-for="Contraseña" type="password" class="form-control" />
+        <span asp-validation-for="Contraseña" class="text-danger"></span>
+    </div>
+    <div class="col-4">
+        <button type="submit" class="btn btn-primary">Registrar Empleado</button>
+        <a asp-action="ListarEmpleado" asp-controller="Empleado">Volver a la lista</a>
+    </div>
+</form>

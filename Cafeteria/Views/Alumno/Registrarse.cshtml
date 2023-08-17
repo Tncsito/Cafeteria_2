@@ -1,0 +1,59 @@
+﻿@model Cafeteria.Models.AlumnoModel;
+@{
+    ViewData["Title"] = "Registrarse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+﻿
+
+<form asp-action="Registrarse" asp-controller="Alumno" method="post" >
+    <div class="col-6">
+        <label class="form-label" >Nss</label>
+        <input asp-for="Nss" type="number" class="form-control" />
+        <span asp-validation-for="Nss" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <div class="col-6">
+        <label class="form-label" >Nombre</label>
+        <input asp-for="Nombre" type="text" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <div class="col-6">
+        <label class="form-label" >Apellido</label>
+        <input asp-for="Apellido" type="text" class="form-control" />
+        <span asp-validation-for="Apellido" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <label class="form-label">Correo</label>
+        <input asp-for="Correo" type="email" class="form-control" > 
+        <span asp-validation-for="Correo" class="text-danger"></span>
+    </div>
+
+            <div class="col-6">
+                <label class="form-label">Carrera</label>
+                <select asp-for="Carrera" asp-items="@(new SelectList(ViewBag.Carreras, "Codigo", "Nombre"))" class="form-control">
+                    <option value="">Selecciona una carrera</option>
+                </select>
+                <span asp-validation-for="Carrera" class="text-danger"></span>
+            </div>
+
+    <div class="col-6">
+        <label class="form-label" >No. Semestre</label>
+        <input asp-for="Semestre" type="text" class="form-control" />
+    </div>
+    <div class="col-6">
+        <label class="form-label">Matricula</label>
+        <input asp-for="Matricula" type="number" class="form-control" > 
+        <span asp-validation-for="Matricula" class="text-danger"></span>
+    </div>
+    <div class="col-6">
+        <label class="form-label" >Contraseña</label>
+        <input asp-for="Contraseña" type="password" class="form-control" />
+        <span asp-validation-for="Contraseña" class="text-danger"></span>
+    </div>
+    <div class="col-4">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+                <a asp-action="ListarAlumno" asp-controller="Alumno">Volver a la lista</a>
+    </div>
+</form>
